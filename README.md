@@ -17,7 +17,6 @@ It is built with simplicity in mind and can be deployed quickly using Docker.
 - Admin authentication
 - Password protected access
 - Login protection with IP blocking
-- Logging of security events and usage
 - Docker-based deployment
 - Minimal and easy-to-understand architecture
 
