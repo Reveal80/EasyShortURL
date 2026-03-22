@@ -1,0 +1,33 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Bloquear acceso directo a .env
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Bloquear acceso a archivos .json y .log
+<FilesMatch "\.(json|log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acceso explícito a archivos sensibles
+<FilesMatch "^(redirect_limits\.json|audit\.log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Cabeceras de seguridad HTTP
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'"
+</IfModule>
+
+# Redirigir URLs cortas a index.php (no requiere mod_rewrite)
+FallbackResource /index.php
