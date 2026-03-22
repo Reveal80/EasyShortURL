@@ -89,7 +89,6 @@ APP_PASSWORD=hashed_password
 
 - Passwords are stored using bcrypt hashing
 - Login attempts are limited (IP blocking after multiple failures)
-- Security events are logged
 - `.env` is protected via `.htaccess`
 
 ---
