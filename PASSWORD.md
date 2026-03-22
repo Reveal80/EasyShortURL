@@ -1,4 +1,4 @@
-# Cómo cambiar la contraseña de EasyShort
+# Cómo cambiar la contraseña de Easy Short URL
 
 La contraseña se almacena como hash **bcrypt** en el archivo `.env`.
 Nunca se guarda en texto plano.
